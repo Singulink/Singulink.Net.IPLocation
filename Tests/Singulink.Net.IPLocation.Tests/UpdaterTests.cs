@@ -16,6 +16,25 @@ public class UpdaterTests
     }
 
     [TestMethod]
+    public async Task Info_NoDatabases_ReturnsTheCredit()
+    {
+        using var host = new ServiceTestHost(DateTime.UtcNow, autoUpdate: false, downloadDirectory: null);
+
+        string json = await host.HttpClient.GetStringAsync("/Info");
+        var info = await host.Client.GetInfoAsync();
+
+        json.ShouldContain("\"licenseName\":\"CC BY 4.0\"");
+        json.ShouldContain("\"licenseUrl\":\"https://creativecommons.org/licenses/by/4.0/\"");
+        json.ShouldNotContain("\"license\":");
+        info.City.ShouldBeNull();
+        info.Asn.ShouldBeNull();
+        info.Attribution.ShouldBe(DataAttribution.Text);
+        info.AttributionUrl.ShouldBe(DataAttribution.Url);
+        info.LicenseName.ShouldBe(DataAttribution.LicenseName);
+        info.LicenseUrl.ShouldBe(DataAttribution.LicenseUrl);
+    }
+
+    [TestMethod]
     public async Task Startup_NoDatabases_DownloadsCurrentMonth()
     {
         string downloadDirectory = ServiceTestHost.RequireDownloadDirectory();

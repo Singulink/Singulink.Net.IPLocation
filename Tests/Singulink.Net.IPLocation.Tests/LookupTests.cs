@@ -130,6 +130,8 @@ public class LookupTests
         info.Asn.ShouldNotBeNull().Month.ShouldBe(month);
         info.Attribution.ShouldBe(DataAttribution.Text);
         info.AttributionUrl.ShouldBe(DataAttribution.Url);
+        info.LicenseName.ShouldBe(DataAttribution.LicenseName);
+        info.LicenseUrl.ShouldBe(DataAttribution.LicenseUrl);
     }
 
     private static ServiceTestHost GetHost()

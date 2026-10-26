@@ -28,7 +28,7 @@ Lookups of private addresses (private networks, loopback, link-local and other a
 
 ### Attribution
 
-The data is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), so **apps that show results must credit DB-IP** with a link: the text and address are available in `DataAttribution.Text` and `DataAttribution.Url` (`<a href="https://db-ip.com">IP Geolocation by DB-IP</a>`).
+The data is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/), so **apps that show results must credit DB-IP** with a link: the text and address are available in `DataAttribution.Text` and `DataAttribution.Url` (`<a href="https://db-ip.com">IP Geolocation by DB-IP</a>`). CC BY 4.0 also asks for the license to be named, with a link to it where that is practical: its short name and address are in `DataAttribution.LicenseName` and `DataAttribution.LicenseUrl` (`<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>`). The service's `/Info` endpoint and the client's `GetInfoAsync` return the same values as `attribution`, `attributionUrl`, `licenseName` and `licenseUrl`, for apps that show the credit from them.
 
 The free databases are less accurate than DB-IP's commercial ones: countries are reliable, but cities can be off, especially for mobile networks. They have no postal codes, time zones or connection types.
 

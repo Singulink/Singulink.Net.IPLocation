@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <!-- The version of the packages, which ship together: Singulink.Net.IPLocation and Singulink.Net.IPLocation.Client. -->
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
 
     <Authors>Singulink</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

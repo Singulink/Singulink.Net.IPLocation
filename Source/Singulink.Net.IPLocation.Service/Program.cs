@@ -54,8 +54,8 @@ builder.Services.AddSwaggerGen(swaggerOptions => {
         Version = "v1",
         Description =
             "Approximate location and network operator of IP addresses, from DB-IP's free IP to City Lite and IP to ASN Lite databases, " +
-            $"updated monthly. {DataAttribution.Text} ({DataAttribution.Url}), licensed under {DataAttribution.License}: apps that show " +
-            "results must credit DB-IP as well.",
+            $"updated monthly. {DataAttribution.Text} ({DataAttribution.Url}), licensed under {DataAttribution.LicenseName} " +
+            $"({DataAttribution.LicenseUrl}): apps that show results must credit DB-IP as well.",
     });
 
     swaggerOptions.OperationFilter<ResponseDescriptionFilter>();
@@ -155,7 +155,8 @@ static DataInfo GetInfo(IPLocationDatabase database)
         GetDatabaseInfo(database.Get(DbIpDatabaseKind.Asn)),
         DataAttribution.Text,
         DataAttribution.Url,
-        DataAttribution.License);
+        DataAttribution.LicenseName,
+        DataAttribution.LicenseUrl);
 
     static DatabaseInfo? GetDatabaseInfo(LoadedDatabase? loaded) => loaded is null ? null : new DatabaseInfo(
         loaded.Month.ToString("yyyy-MM", CultureInfo.InvariantCulture), loaded.BuildDateUtc, loaded.DatabaseType);

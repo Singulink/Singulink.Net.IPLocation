@@ -55,14 +55,18 @@ public class ClientTests
     {
         var handler = new FakeHandler((_, _) => Json("""
             {"city":{"month":"2026-10","buildDateUtc":"2026-10-01T00:00:00Z","databaseType":"DBIP-City-Lite"},"asn":null,
-             "attribution":"IP Geolocation by DB-IP","attributionUrl":"https://db-ip.com","license":"CC BY 4.0"}
+             "attribution":"IP Geolocation by DB-IP","attributionUrl":"https://db-ip.com",
+             "licenseName":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/"}
             """));
 
         var info = await new IPLocationClient(BaseAddress, handler).GetInfoAsync();
 
         info.City.ShouldNotBeNull().Month.ShouldBe("2026-10");
         info.Asn.ShouldBeNull();
-        info.Attribution.ShouldBe("IP Geolocation by DB-IP");
+        info.Attribution.ShouldBe(DataAttribution.Text);
+        info.AttributionUrl.ShouldBe(DataAttribution.Url);
+        info.LicenseName.ShouldBe(DataAttribution.LicenseName);
+        info.LicenseUrl.ShouldBe(DataAttribution.LicenseUrl);
         handler.Requests.ShouldHaveSingleItem().RequestUri!.PathAndQuery.ShouldBe("/Info");
     }
 
