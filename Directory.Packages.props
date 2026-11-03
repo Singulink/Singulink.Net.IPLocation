@@ -6,7 +6,7 @@
     <PackageVersion Include="PolySharp" Version="1.16.0" />
     <PackageVersion Include="System.Text.Json" Version="10.0.13" />
     <!-- Singulink -->
-    <PackageVersion Include="Singulink.Net.Http.Api.Client" Version="4.0.0" />
+    <PackageVersion Include="Singulink.Net.Http.Api.Client" Version="4.1.0" />
     <PackageVersion Include="Singulink.Net.Http.Api.Service" Version="4.0.0" />
     <PackageVersion Include="Singulink.Net.Http.Api.Service.Cloudflare" Version="4.0.0" />
     <!-- Null checks -->
