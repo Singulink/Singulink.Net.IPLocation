@@ -159,8 +159,9 @@ static DataInfo GetInfo(IPLocationDatabase database)
         DataAttribution.LicenseName,
         DataAttribution.LicenseUrl);
 
-    static DatabaseInfo? GetDatabaseInfo(LoadedDatabase? loaded) => loaded is null ? null : new DatabaseInfo(
-        loaded.Month.ToString("yyyy-MM", CultureInfo.InvariantCulture), loaded.BuildDateUtc, loaded.DatabaseType);
+    static DatabaseInfo? GetDatabaseInfo(LoadedDatabase? loaded) => loaded is null
+        ? null
+        : new DatabaseInfo(loaded.Month.ToString("yyyy-MM", CultureInfo.InvariantCulture), loaded.BuildDateUtc, loaded.DatabaseType);
 }
 
 static ServiceUnavailableApiException NotReady() => new("The IP location data is still being downloaded. Please try again in a few minutes.") {
