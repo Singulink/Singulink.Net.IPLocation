@@ -3,6 +3,7 @@ using System.Net;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi;
+using Singulink.IO;
 using Singulink.Net.Http.Api;
 using Singulink.Net.Http.Api.Service;
 using Singulink.Net.IPLocation;
@@ -35,8 +36,8 @@ builder.Services.AddApiJson(IPLocationJsonSerializerContext.Default);
 builder.Services.AddCloudflareForwarding();
 builder.Services.AddOptions<CloudflareForwardingOptions>()
     .Bind(builder.Configuration.GetSection("Cloudflare"))
-    .Configure<IOptions<IPLocationOptions>>((cloudflareOptions, options) =>
-        cloudflareOptions.SavedRangesPath ??= Path.Combine(options.Value.GetDataDirectoryPath(), IPLocationOptions.CloudflareRangesFileName));
+    .Configure<IOptions<IPLocationOptions>>((cloudflareOptions, options) => cloudflareOptions.SavedRangesFile ??=
+        DirectoryPath.ParseAbsolute(options.Value.GetDataDirectoryPath()).CombineFile(IPLocationOptions.CloudflareRangesFileName));
 
 builder.Services.AddRateLimiter(limiterOptions => limiterOptions.SetClientFixedWindowGlobalLimiter(limit => {
     limit.PermitLimit = 50;

@@ -3,14 +3,14 @@
     <PackageVersion Include="MaxMind.Db" Version="5.2.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="10.3.1" />
-    <PackageVersion Include="PolySharp" Version="1.16.0" />
+    <PackageVersion Include="PolySharp" Version="1.17.1" />
     <PackageVersion Include="System.Text.Json" Version="10.0.14" />
     <!-- Singulink -->
-    <PackageVersion Include="Singulink.Net.Http.Api.Client" Version="4.0.0" />
-    <PackageVersion Include="Singulink.Net.Http.Api.Service" Version="4.1.0" />
-    <PackageVersion Include="Singulink.Net.Http.Api.Service.Cloudflare" Version="4.1.0" />
+    <PackageVersion Include="Singulink.Net.Http.Api.Client" Version="5.0.1" />
+    <PackageVersion Include="Singulink.Net.Http.Api.Service" Version="5.0.1" />
+    <PackageVersion Include="Singulink.Net.Http.Api.Service.Cloudflare" Version="5.0.1" />
     <!-- Null checks -->
-    <PackageVersion Include="Singulink.RuntimeNullables" Version="3.0.0" />
+    <PackageVersion Include="Singulink.RuntimeNullables" Version="3.1.0" />
     <!-- Analyzers -->
     <PackageVersion Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
@@ -18,6 +18,6 @@
     <!-- Testing -->
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.14" />
     <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.11.0" />
-    <PackageVersion Include="Singulink.Net.Http.Api.Service.Testing" Version="4.1.0" />
+    <PackageVersion Include="Singulink.Net.Http.Api.Service.Testing" Version="5.0.1" />
   </ItemGroup>
 </Project>

@@ -97,13 +97,13 @@ The service can run behind Cloudflare's proxy. For a request whose connection co
 
 The service downloads Cloudflare's IP ranges at startup and once a day, and saves them to `cloudflare-ip-ranges.txt` in the data directory. When the download at startup fails, it uses that saved copy. Without any ranges, as on a first start that can't download them, the service refuses every request with a `503` error (`cloudflare-ranges-unavailable`) and tries the download again every 10 seconds, until it succeeds.
 
-The settings are in the `Cloudflare` configuration section, for example `Cloudflare__SavedRangesPath` as an environment variable (see the [toolkit's documentation](https://www.singulink.com/Docs/Singulink.Net.Http.Api/articles/guides/cloudflare.html#options) for all of them):
+The settings are in the `Cloudflare` configuration section, for example `Cloudflare__SavedRangesFile` as an environment variable (see the [toolkit's documentation](https://www.singulink.com/Docs/Singulink.Net.Http.Api/articles/guides/cloudflare.html#options) for all of them):
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| `SavedRangesPath` | `cloudflare-ip-ranges.txt` in the data directory | Where the downloaded ranges are saved. Relative paths are resolved against the content root. |
+| `SavedRangesFile` | `cloudflare-ip-ranges.txt` in the data directory | Where the downloaded ranges are saved. It must be an absolute path: the service fails to start with a relative one. |
 | `TrustedProxyNetworks` | (none) | Addresses, or networks in CIDR notation, of other proxies whose connections are trusted like Cloudflare's, such as `Cloudflare__TrustedProxyNetworks__0=127.0.0.1` for Cloudflare Tunnel's `cloudflared` on the same machine. |
-| `DownloadRanges` | `true` | Whether the ranges are downloaded. When `false`, they are only read from `SavedRangesPath`, at startup and every `RefreshInterval`. |
+| `DownloadRanges` | `true` | Whether the ranges are downloaded. When `false`, they are only read from `SavedRangesFile`, at startup and every `RefreshInterval`. |
 | `RefreshInterval` | `1.00:00:00` | How often the ranges are downloaded again. |
 
 ### Hosting in IIS
